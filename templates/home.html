@@ -1,0 +1,264 @@
+{% extends 'index.html' %} {% load static %} {% block homecon %}
+
+<!-- Home -->
+
+<section id="home">
+  <div class="container">
+    <h5 style="color: white">NEW ARRIVALS</h5>
+    <h1 style="color: white">
+      <span style="color: rgb(255, 204, 0)">BEST PRICE</span> This Year
+    </h1>
+    <p style="color: white">
+      Shoomatic offers your very comfortable time <br />
+      on walking and exercises.
+    </p>
+    <button onclick="Shopnow()">SHOP NOW</button>
+  </div>
+</section>
+
+<!--  Brands -->
+
+<section id="brands" class="container-fluid">
+  <div class="brands-log">
+    <div class="brands-log-con">
+      <img src="{% static 'img/fabindia.png' %}" alt="" class="mx-3 my-4" />
+      <img src="{% static 'img/biba-logo.png' %}" alt="" class="mx-3 my-4" />
+      <img
+        src="{% static 'img/Manyavar-logo-big.png' %}"
+        alt=""
+        class="mx-3 my-4"
+      />
+      <img src="{% static 'img/globaldesi.png' %}" alt="" class="mx-3 my-4" />
+      <img src="{% static 'img/soch.webp' %}" alt="" class="mx-3 my-4" />
+      <img
+        src="{% static 'img/logo-lifestyle.svg' %}"
+        alt=""
+        class="mx-3 my-4"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- new -->
+
+<section id="new" class="w-100 py-5">
+  <div class="row p-0 m-0">
+    <div class="one col-lg-4 col-md-12 col-12 p-0">
+      <img
+        class="img-fluid image"
+        src="{% static 'product/kurta-men1.avif' %}"
+      />
+      <div class="details">
+        <h2>Mens Kurta</h2>
+        <button class="text-uppercase" onclick="Shownow()">Shop Now</button>
+      </div>
+    </div>
+    <div class="one col-lg-4 col-md-12 col-12 p-0">
+      <img class="img-fluid image" src="{% static 'product/salvar.png' %}" />
+      <div class="details">
+        <h2>Salvar</h2>
+        <button class="text-uppercase" onclick="Shownow()">Shop Now</button>
+      </div>
+    </div>
+    <div class="one col-lg-4 col-md-12 col-12 p-0">
+      <img class="img-fluid image" src="{% static 'product/child.jpg' %}" />
+      <div class="details">
+        <h2>Children Special</h2>
+        <button class="text-uppercase">
+          <a
+            style="text-decoration: none; color: inherit"
+            href="http://127.0.0.1:8000/men/productspage/9"
+            >Shop Now</a
+          >
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- fearured products -->
+
+<section id="featured" class="my-5 pb-5">
+  <div class="container text-center mt-5 py-5">
+    <h3>Our Featured</h3>
+    <hr class="mx-auto" />
+    <p>
+      Best Featured Clothing Attire available here.
+    </p>
+  </div>
+  <div class="row mx-auto container-fluid">
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/child.jpg' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Red Child Kurta</h5>
+      <h4 class="p-price">₹1899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/kurta.png' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Black Designer Kurta</h5>
+      <h4 class="p-price">₹899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img
+        class="img-fluid mb-3 pro"
+        src="{% static 'product/kanchivaram.jpg' %}"
+      />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Kanchivaram</h5>
+      <h4 class="p-price">₹1200</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/saree.jpg' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Mysore Ethnic Saree</h5>
+      <h4 class="p-price">₹2899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<!-- Banner -->
+
+<section id="banner">
+  <div class="container" style="color: white">
+    <h4>MID SEASON'S SALE</h4>
+    <h1>
+      Autum Collection <br />
+      UP TO 20% OFF
+    </h1>
+    <button
+      class="text-uppercase"
+      style="background-color: rgb(255, 191, 0); color: black"
+      onclick="Shopnow()"
+    >
+      Shop Now
+    </button>
+  </div>
+</section>
+
+<!-- Best Sellers -->
+
+<section id="bestseller" class="my-5 pb-5">
+  <div class="container text-center mt-5 py-5">
+    <h3>Best Selling Products</h3>
+    <hr class="mx-auto" />
+    <p>
+     Best Selling Clothing Attire available here.
+    </p>
+  </div>
+  <div class="row mx-auto container-fluid">
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/child.jpg' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Red Child Kurta</h5>
+      <h4 class="p-price">₹1899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/kurta.png' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Black Designer Kurta</h5>
+      <h4 class="p-price">₹899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img
+        class="img-fluid mb-3 pro"
+        src="{% static 'product/kanchivaram.jpg' %}"
+      />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Kanchivaram</h5>
+      <h4 class="p-price">₹1200</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+
+    <div class="product text-center col-lg-3 col-md-4 col-12">
+      <img class="img-fluid mb-3 pro" src="{% static 'product/saree.jpg' %}" />
+      <div class="star">
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+      </div>
+
+      <h5 class="p-name">Mysore Ethnic Saree</h5>
+      <h4 class="p-price">₹2899</h4>
+      <button class="buy-btn" onclick="Shopnow()">Shop Now</button>
+    </div>
+  </div>
+</section>
+
+<script>
+  function myFunction() {
+    location.replace("/product");
+  }
+
+  function Shownow() {
+    location.replace("/men");
+  }
+
+  function Shopnow() {
+    location.replace("/men");
+  }
+</script>
+
+{% endblock %}

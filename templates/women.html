@@ -1,0 +1,92 @@
+{% extends 'index.html' %}
+
+{% load static %}
+
+
+{% block homecon %}
+<link href="{% static 'style.css' %}" rel="stylesheet" />
+<div class="container-fluid">
+
+    <div class="col border">
+        <section id="featured" class="my-5 pb-5">
+            <div class="container text-center mt-3 py-2">
+                <h3>WOMENS</h3>
+                <hr class="mx-auto">
+                <div>
+
+                    {% for type in types %}
+
+                    <a href="?type={{type.id}}" class="prod-btn"><button class="prod-btn">{{type.name}}</button></a>
+
+                    {% endfor %}
+
+
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <!-- Filter -->
+                <div class="col-lg-2 mx-auto">
+                    <!-- Hover added --> -->
+                    <div class="list-group">
+                        {% for category in categories %}
+                        <a href="?category={{category.id}}" class="list-group-item list-group-item-action "><button
+                                class="prod-btn">{{category.name}}</button></a>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+
+
+                <!-- Products -->
+                <div id="product" class="col-lg-10">
+                    <div class="row mx-auto">
+                        {% for product in products %}
+
+                        <div class="product text-center col-lg-3 col-md-4 col-12">
+                            <a href="productspage/{{product.id}}}">
+                                <div>
+                                    <div class="container heart m-5 bg-dark text-white" style="right:1rem;">
+                                        <input type="checkbox" style="-webkit-appearance: none; appearance: none; "
+                                            value="{{product.id}}">
+                                    </div>
+                                    <img class="img-fluid mb-3 pro" src="{{product.image.url}}">
+                                </div>
+                                <div class="star">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <h5 class="p-name">{{product.name}}</h5>
+                                <h4 class="p-price">₹ {{product.price}}</h4>
+                                <button class="buy-btn" onclick="myFunction()"><a href="productspage/{{product.id}}">Shop Now</a></button>
+                            </a>
+                        </div>
+
+
+
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+
+            </div>
+        </section>
+    </div>
+</div>
+</div>
+
+
+
+<!-- <script>
+        function myFunction() {
+  location.replace("product.html")
+} -->
+
+{% endblock %}

@@ -1,0 +1,601 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 800;
+}
+
+h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #1d1d1d;
+}
+
+h6 {
+    color: #d8d8d8;
+}
+
+button {
+    font-size: 0.9rem;
+    font-weight: 700;
+    outline: none;
+    border: none;
+    background-color: #ff0000;
+    color: aliceblue;
+    padding: 13px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #dcdcdc;
+    color: #000000;
+    
+}
+
+.navbar {
+    font-size: 16px;
+    top: 0;
+    left: 0;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    padding: 0 20px;
+    font-weight: 500;
+    color: rgb(40, 40, 40);
+    transition: 0.3s ease;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover, 
+.navbar span:hover,
+.navbar span.active,
+.navbar-light .navbar-nav .nav-link.active {
+    color: red;
+}
+
+.navbar span {
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+#home {
+    background-image: url("img/Cover.png");
+    filter: brightness(110%) contrast(120%);
+    transform: scale(1.02);
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#home span{
+    color: rgb(255, 28, 28);
+}
+
+.navbar-toggler {
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.navbar-toggler-icon {
+    font-weight:bolder;
+    font-size: 26px;
+}
+
+@media only screen and (max-width: 991px){
+    #navbarSupportedContent > ul {
+        margin: 1rem;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        gap: 15px;
+    }
+}
+
+
+
+.brands-log {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.brands-log-con {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.brands-log-con img {
+    height: 4.5rem;
+    filter: grayscale(100%);
+    opacity: 0.5;
+}
+
+.brands-log-con img:hover{
+    cursor: pointer;
+    filter: grayscale(0%);
+    opacity: 1;
+    transition: 1s;
+}
+
+@media only screen and (max-width: 991px){
+    .brands-log-con {
+        width: 100%;
+        justify-content: space-between;
+        /* padding: 2rem; */
+    }
+
+    .brands-log-con img {
+        height: 3rem;
+    }
+}
+
+/* Product-sec */
+
+.text-uppercase {
+    color: red;
+}
+
+.image {
+    height: 27rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+#new .one image {
+    position: relative;
+}
+
+#new .one .details {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    transition: 0.3s ease;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+#new .one:hover .details {
+    cursor: pointer;
+    background-color: rgba(162, 162, 162, 0.7);
+}
+
+#new .one .details button {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background: none;
+    text-transform: uppercase;
+    border-bottom: 3px solid #ffffff;
+    padding: 2.5px;
+    transform: translateY(70px);
+    transition: 0.3s ease;
+}
+
+#new .one .details button:hover {
+    color: rgb(0, 0, 0);
+    border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+#new .one:nth-child(1) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    padding-left: 20px;
+}
+
+#new .one:nth-child(2) .details {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#new .one:nth-child(3) .details {
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: center;
+    padding-right: 20px;
+}
+
+#new .one:nth-child(1) .details button {
+    color: white;
+    text-shadow: none;
+    border-bottom: 3px solid #000000;
+}
+
+#new .one:nth-child(3) .details:hover {
+    color: black;
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
+    border-bottom: 3px solid white;
+}
+
+#new .one:nth-child(1) .details button:hover {
+    color: black;
+    border-bottom: 1px solid white;    
+}
+
+/* Feauterd Products */
+
+.pro {
+    height: 300px;
+    width: 250px;
+    object-fit: cover;
+    transition: 0.3s all;
+}
+
+.product {
+    cursor: pointer;
+    margin-bottom: 2rem;
+}
+
+.product:hover .pro {
+    opacity: 0.7;
+}
+
+.product .buy-btn {
+    background: coral;
+    transform: translateY(10px);
+    opacity: 0;
+    transition: 0.3s all;
+}
+
+.product:hover .buy-btn {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+hr {
+    width: 50px;
+    height: 3px;
+    border-radius: 10px;
+    background-color: rgb(251, 116, 67);
+}
+
+.star {
+    color: rgb(255, 191, 0);
+    padding: 10px;
+}
+
+/* Banner */
+
+#banner {
+    background-image: url("product/Best-sherwani.webp");
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#banner button:hover {
+    background-color: coral;
+}
+
+/* Footer */
+
+footer {
+    background-color: #d7d7d7;
+    position: relative;
+}
+
+.icon-con {
+    font-size: 30px;
+}
+
+.ic {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.lin a {
+    color: rgb(255, 255, 255);;
+}
+
+.lin li {
+    line-height: 2;
+}
+
+.lin a:hover {
+    color: rgb(255, 255, 255);
+    transition: 0.7s ease ;
+    text-decoration: none;
+}
+
+/* Products-Page */
+
+.breadcrumb {
+    background-color: white;
+    margin-left: 30px ;
+}
+
+.prod-btn {
+    margin: 20px;
+    background-color: coral;
+}
+
+.prod-btn:hover {
+    background-color: silver;
+    color: white;
+}
+
+
+/* Add To Cart */
+
+.over {
+    overflow-x: hidden;
+}
+
+#cart-contain {
+    overflow-x: auto !important;
+}
+
+#cart-contain table {
+    border-collapse: collapse;
+    width: 100%;
+    /* table-layout: fixed; */
+
+}
+
+#cart-contain table thead {
+    font-weight: 700;
+}
+
+#cart-contain table thead td {
+    background: coral;
+    color: white;
+    border: none;
+    padding: 6px 0;
+}
+
+#cart-contain table td {
+    border: 1px solid gray;
+    text-align: center;
+}
+
+td {
+    padding: 10px 20px;
+}
+
+#cart-contain table tbody img {
+    height: 120px;
+    width: 100px;
+    object-fit: cover;
+}
+
+#cart-contain table tbody i {
+    color: gray;
+}
+
+#cart-bottom .coupon > div,
+#cart-bottom .total > div {
+    border: 1px solid gray;
+
+}
+
+#cart-bottom .coupon h5,
+#cart-bottom .total h5 {
+     background: #fd8c66;
+     color: #fff;
+     border: none;
+     padding: 6px 12px;
+     font-weight: 700;
+}
+
+#cart-bottom .coupon p,
+#cart-bottom .coupon input {
+    padding: 0 12px;
+}
+
+#cart-bottom .coupon input {
+    height: 44px;
+}
+
+#cart-bottom .coupon input {
+    margin: 0 0 20px 12px;
+}
+
+#cart-bottom .total div> div  {
+    padding: 0 12px;
+}
+
+#cart-bottom .total h6 {
+    color: #2a2a2a;
+}
+
+#second-hr {
+    background: #b8b7b3;
+    width: 100%;
+    height: 1px ;
+}
+
+#cart-bottom .total div >button {
+    margin: 0 12px 20px 0;
+}
+
+/* Payment */
+
+.pay {
+    background-color:rgb(255, 200, 0);
+    font-weight: 700;
+    /* margin: 50px; */
+    color: black;
+    border-radius: 0;
+    border: 0;
+}
+
+.pay:hover {
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 200, 0);
+}
+
+.content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* margin: 50px 100px; */
+    max-width: 500px;
+    margin: auto;
+    transform: translate(-50%, -50%);
+    width: 22rem;
+    height: 16rem;
+    text-align: center;
+    background-color: #e8eae6;
+    /* box-sizing: border-box; */
+    padding: 20px 10px ;
+    /* z-index: 100; */
+    display: none;
+    box-shadow: 2px 2px 5px black;
+    /*to hide popup initially*/
+}
+  
+.close-btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+
+
+.confirm-text {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.modal-title i {
+    background-color: green;
+    color: white;
+    padding: 10px;
+    font-size: 26px;
+    border-radius: 50%;
+}
+
+
+/* Contact */
+
+#conbanner {
+    background-image: url("img/contacts.jpg ");
+    width: 100%;
+    height: 60vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+/* Mens */
+
+/* Liked */
+.heart {
+    padding: 13px;
+    right: 2rem;
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    z-index: 3;
+    /* background-color: #000000; */
+    position: absolute;
+}
+
+.heart input[type="checkbox"]{
+    height: 15px;
+    width: 15px;
+    background-color: white;
+    position: relative;
+    outline:none;
+    transform: rotate(45deg);
+    /* -webkit-appearance: none; */
+    /* -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important; */
+    cursor: pointer;
+}
+
+.heart input[type="checkbox"]:before {
+    position: absolute;
+    content: "";
+    background-color: white;
+    height: 60%;
+    width: 100%;
+    top: -56%;
+    border-radius: 75px 75px 0 0;
+}
+
+.heart input[type="checkbox"]:after {
+    position: absolute;
+    content: "";
+    background-color: white;
+    height: 60%;
+    width: 100%;
+    transform: rotate(-90deg);
+    border-radius: 75px 75px 0 0;
+    top:20%;
+    right: 77%;
+}
+
+.heart input[type="checkbox"]:checked,
+.heart input:checked[type="checkbox"]:before,
+.heart input:checked[type="checkbox"]:after{
+    background-color: #fe0f42;
+}
+
+

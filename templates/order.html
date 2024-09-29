@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% load cart %}
+
+{% block homecon %}
+
+{{Order}}
+
+<div class="container text-left">
+  <h1>Order Page</h1>
+  <hr class="">
+</div>
+<section id="cart-contain" class="container my-5 over">
+
+  
+
+  <div class="overflow-auto">
+  <table width="100%" >
+      <thead>
+          <tr>
+            <td>Sr. No</td>
+              <td>Remove</td>
+              <td>Image</td>
+              <td>Product</td>
+              <td>Price</td>
+              <td>Quantity</td>
+              <td>Status</td>
+          </tr>
+      </thead>
+
+      <tbody class="add-list">
+              {% for order in orders %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+              <td><a><i class="fa-solid fa-trash"></i></a></td>
+              <td><img src="{{order.product.image.url}}" height="100px"></td>
+              <td><h5>{{order.product.name}}</h5></td>
+              <td><h5>₹{{order.price}}</h5></td>
+              <td><h5>{{order.quantity}}</h5></td>
+              <td>
+                {% if order.status == 'Active' %}
+                <h5 style="background-color: rgb(50, 204, 50); color: aliceblue; border-radius: 3px; padding: 3px; cursor: pointer;">{{order.status}}</h5>
+                {% elif order.status == 'Deliverd' %}
+                <h5 style="background-color: rgb(255, 0, 0); color: aliceblue; border-radius: 3px; padding: 3px; cursor: pointer;">{{order.status}}</h5>
+                {% else %}
+                <h5 style="background-color: rgb(255, 81, 0); color: aliceblue; border-radius: 3px; padding: 3px; cursor: pointer;">{{order.status | default:'pending'}}</h5>
+                {% endif %}
+              </td>
+              {% endfor %}
+              
+          </tr>
+      </tbody>
+
+    
+
+  </table>
+  </div>
+</section>
+
+
+    <!-- https://picsum.photos/300/400 -->
+    <div>
+    <div class="row mx-auto">
+        {% for product in products %}
+        <div class="card mx-auto mb-3" style="width: 18rem;">
+            <img class="card-img-top" src="{{product.image.url}}"" alt="" >
+            <div class="card-body">
+                <h4 class="card-title">{{product.name}}</h4>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text">{{product.price}}</p>
+                <a href="#" class="btn btn-light border btn-sm">Add to Cart</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    </div>
+
+   
+    {% endblock %}
+
+ 

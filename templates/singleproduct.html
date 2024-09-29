@@ -1,0 +1,214 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block homecon %}
+<link href="{% static 'style.css' %}" rel="stylesheet" />
+
+<style>
+    .small-img-group {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    .small-img-col {
+        flex-basis: 24%;
+        cursor: pointer;
+    }
+
+    .sproduct select {
+        display: block;
+        padding: 5px 10px;
+    }
+
+    .sproduct input {
+        width: 50px;
+        height: 40px;
+        padding-left: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+    }
+
+    .sproduct input:focus {
+        outline: none;
+    }
+
+    .buy-btn {
+        background: coral;
+        opacity: 1;
+        transition: 0.3s ease;
+    }
+
+    .accordion-button {
+        width: 100%;
+        text-align: left;
+        color: #000;
+        background-color: rgb(240, 240, 240);
+    }
+
+    .accordion-button:hover {
+        color: white;
+    }
+</style>
+
+</head>
+
+<body>
+    <!-- Navigation  -->
+
+    <!-- Image -->
+    <section class="container sproduct ">
+        <div class="row mt-5">
+            <div class="col-lg-5 col-md-12 col-12 size border">
+                <img src="{{ productt.image.url }}" class="img-fluid w-100" id="MainImg">
+            </div>
+            <div class="col-lg-5 col-md-12 col-12 border px-4">
+                <ol class="breadcrumb m-0" style="margin: 0px; padding: 0px;">
+                    <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{% url 'men' %}">Back</a></li>
+                </ol>
+                <hr style="padding: 0px; margin: 5px;">
+                <h3 style="margin-top: 10px; font-size: 36px;">{{ productt.name }}</h3>
+                <h2>₹{{ productt.price }}</h2>
+                <form action="/#{{ productt.id }}" method="POST">
+                    {% csrf_token %}
+                    <select class="my-3">
+                        <option>Select Size</option>
+                        <option>L</option>
+                        <option>M</option>
+                        <option>S</option>
+                    </select>
+                    <div class="row counter">
+            <span class="down col-2 btn btn-block btn-light border" onclick="decreaseCount(event, this)">-</span>
+            <input type="text" name="quantity" value="1" class="px-2" readonly> <!-- Add a name attribute and make it readonly -->
+            <span class="up col-2 btn btn-block btn-light border" onclick="increaseCount(event, this)">+</span>
+        </div>
+                    <input type="text" name="product" value="{{ productt.id }}" hidden>
+                    <button type="submit" class="buy-btn" value="Add to Cart">Add to Cart</button>
+                </form>
+                <h4 class="mt-5 mb-5">Product Details</h4>
+                <span>{{ productt.productinfo }}</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accordian -->
+    <section class="container mt-4">
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Description
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show text-wrap" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body  border" style="overflow: hidden;  word-wrap: break-word;">
+                        {{ productt.description }}
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Product Info
+                    </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        {{ productt.productinfo }}
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Review
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong><div style="border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-bottom: 20px;">
+    <div style="font-weight: bold; color: #555;">Sara Patel</div>
+    <div style="font-size: 14px; color: #777;">May 20, 2024</div>
+    <div style="margin-top: 10px; color: #333;">
+        <p>This saree is absolutely gorgeous! The colors are vibrant, and the embroidery work is exquisite. I wore it to a wedding, and I received countless compliments. The fabric is also very comfortable to wear throughout the event.</p>
+    </div>
+</div>
+
+<div style="border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-bottom: 20px;">
+    <div style="font-weight: bold; color: #555;">Rajesh Kumar</div>
+    <div style="font-size: 14px; color: #777;">May 18, 2024</div>
+    <div style="margin-top: 10px; color: #333;">
+        <p>I recently purchased a kurta-pajama set from this store, and I'm highly satisfied with the quality and fit. The fabric is soft and breathable, perfect for hot summer days. The intricate design on the kurta adds a touch of elegance, making it suitable for both casual and formal occasions.</p>
+    </div>
+</div>
+
+<div style="border-bottom: 1px solid #ccc; padding-bottom: 20px; margin-bottom: 20px;">
+    <div style="font-weight: bold; color: #555;">Priya Gupta</div>
+    <div style="font-size: 14px; color: #777;">May 15, 2024</div>
+    <div style="margin-top: 10px; color: #333;">
+        <p>I bought a pair of jhumka earrings to match with my traditional outfit, and I couldn't be happier with my purchase. The craftsmanship is top-notch, and the earrings are lightweight and comfortable to wear. They add a beautiful ethnic touch to my overall look. I'll definitely be shopping here again!</p>
+    </div>
+</div>
+</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <!-- <section id="featured" class="my-5">
+        <div class="container text-center mt-5">
+            <h3>Our Featured</h3>
+            <hr class="mx-auto">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ab neque, corrupti accusantium sit soluta praesentium?</p>
+        </div>
+        <div class="row mx-auto container">
+            {% for productt in productdetails %}
+                {% if productt.id <= 5 %}
+                    <div class="product text-center col-lg-3 col-md-4 col-12">
+                        <div>
+                            <div class="container heart m-5 bg-dark text-white" style="right:1rem;">
+                                <input type="checkbox" style="-webkit-appearance: none; appearance: none; " value="{{ productt.id }}">
+                            </div>
+                            <img class="img-fluid mb-3 pro" src="{{ productt.image.url }}">
+                        </div>
+                        <div class="star">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                        <h5 class="p-name">{{ productt.name }}</h5>
+                        <h4 class="p-price">₹ {{ productt.price }}</h4>
+                        <button class="buy-btn" onclick="myFunction()">Shop Now</button>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </section> -->
+
+    <script>
+         function increaseCount(event, element) {
+        event.preventDefault(); // Prevent the default behavior of the anchor tag
+        var input = element.previousElementSibling;
+        var value = parseInt(input.value, 10);
+        value = isNaN(value) ? 0 : value;
+        value++;
+        input.value = value;
+    }
+
+    function decreaseCount(event, element) {
+        event.preventDefault(); // Prevent the default behavior of the anchor tag
+        var input = element.nextElementSibling;
+        var value = parseInt(input.value, 10);
+        if (value > 1) {
+            value = isNaN(value) ? 0 : value;
+            value--;
+            input.value = value;
+        }
+    }
+    </script>
+
+{% endblock %}

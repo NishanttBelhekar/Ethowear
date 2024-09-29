@@ -1,0 +1,175 @@
+from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from .models.product import Product
+
+
+
+# Create your views here.
+
+def home(request):
+    return render(request, 'home.html')
+
+# def men(request):
+#     products = Product.get_all_products()
+#     categories = Category.get_all_categories()
+#     # types = Type.get_all_types()
+#     types = Type.get_all_types()
+#     typeID = request.GET.get('type')
+#     categoryID = request.GET.get('category')
+#     typeID = request.GET.get('type')
+#     if categoryID:
+#         products = Product.get_all_products_by_categoryid(categoryID)
+#     elif typeID:
+#         products = Product.get_all_products_by_typeid(typeID)
+#     else:
+#         products =Product.get_all_products()
+#     data = {}
+#     data['categories'] = categories
+#     data['products'] = products
+#     data['types'] = types
+
+#     return render(request, 'mens.html', data)
+
+
+def women(request):
+    return render(request, 'mens.html')
+
+
+def contact(request):
+    return render(request, 'contact.html')
+
+def about(request):
+    return render(request, 'about.html')
+
+def addtocart(request):
+    return render(request, 'addtocart.html')
+
+def productdetails(request, id):
+    productt = Product.objects.filter(id = id).first
+    data = {
+        'productt' : productt
+    }
+    
+    return render(request, 'singleproduct.html',data)
+
+
+
+# class Register(View):
+#     def get(self, request):
+#         return render(request, 'register.html')
+
+#     def post(self, request):
+#         postData = request.POST
+#         first_name = postData.get('firstname')
+#         last_name = postData.get('lastname')
+#         email = postData.get('email')
+#         phone = postData.get('phone')
+#         password = postData.get('password')
+#         #validation
+#         value = {
+#             'first_name' : first_name,
+#             'last_name' : last_name,
+#             'phone' : phone,
+#             'email' : email
+#         }
+#         error_message = None
+
+#         customer = Customer(first_name = first_name,
+#                                              last_name = last_name,
+#                                              phone = phone,
+#                                              email = email,
+#                                              password = password)
+#         error_message = self.validateCustomer(customer)
+
+#         #saving
+#         if  not error_message :
+#                 print(first_name, last_name, phone, email, password)
+#                 customer.password = make_password(customer.password)
+#                 customer.register()
+#                 # return redirect(request,'index.html', )
+#                 return redirect('login')
+#         else:
+#             data = {
+#                 'error' : error_message,
+#                 'values' : value,
+#             }
+#             return render(request , 'register.html' , data)
+
+#     def validateCustomer(self, customer):
+#         error_message = None;
+#         if(not customer.first_name):
+#             error_message = "First Name Required !!"
+        
+#         elif not customer.last_name:
+#             error_message = "Last Name Required !!"
+        
+#         elif not customer.phone:
+#             error_message = "Phone No Required !!"
+
+#         elif customer.isExists() :
+#             error_message = 'Email Address Already Registered...'
+
+#             return error_message
+
+# class Login(View):
+#     def get(self, request):
+#         return render(request, 'login.html')
+
+#     def post(self, request):
+#         email = request.POST.get('email')
+#         password = request.POST.get('password')
+#         customer = Customer.get_customer_by_email(email)
+#         error_message = None
+#         if customer:
+#             flag = check_password(password, customer.password)
+#             # if password == customerpas:
+#             if flag:
+#                     return redirect('home')
+#             else:
+#                 error_message = 'Email or Password invalid !!!'
+#         else:
+#             error_message = 'Email or Password invalid !!!'
+#         print(flag)
+#         print(customer)
+#         print(email, password)
+#         return render(request, 'login.html', {'error' : error_message} )
+#         # return render(request, 'home.html')
+
+
+
+
+
+    
+Mens class
+
+    from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from base.models.product import Product
+from base.models.category import Category
+from django.views import View
+
+from base.models.type import Type
+
+class Item(View):
+    def get(self, request)
+
+def men(request):
+    products = Product.get_all_products()
+    categories = Category.get_all_categories()
+    # types = Type.get_all_types()
+    types = Type.get_all_types()
+    typeID = request.GET.get('type')
+    categoryID = request.GET.get('category')
+    typeID = request.GET.get('type')
+    if categoryID:
+        products = Product.get_all_products_by_categoryid(categoryID)
+    elif typeID:
+        products = Product.get_all_products_by_typeid(typeID)
+    else:
+        products =Product.get_all_products()
+    data = {}
+    data['categories'] = categories
+    data['products'] = products
+    data['types'] = types
+    print('you are : ',request.session.get('email'))
+    return render(request, 'mens.html', data)

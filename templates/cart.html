@@ -1,0 +1,86 @@
+{% extends 'index.html' %}
+{% load static %}
+{% load cart %}
+{% block homecon %}
+
+<div class="container text-left">
+    <h3>ADD TO CART</h3>
+    <hr class="">
+</div>
+<section id="cart-contain" class="container my-5 over">
+    <div class="overflow-auto">
+        <table width="100%">
+            <thead>
+                <tr>
+                    <td>Sr.No</td>
+                    <td>Remove</td>
+                    <td>Image</td>
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Quantity</td>
+                    <td>Total</td>
+                </tr>
+            </thead>
+            <tbody class="add-list">
+                {% for product in products %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td><a href="#" class="btn-delete" onclick="hideRow(this);"><i class="fa-solid fa-trash"></i></a></td>
+                    <td><img src="{{ product.image.url }}" height="100px"></td>
+                    <td><h5>{{ product.name }}</h5></td>
+                    <td><h5>₹{{ product.price }}</h5></td>
+                    <td><input type="number" class="w-50 p-1" value="{{ product | cart_quantity:request.session.cart }}"></td>
+                    <td>{{ product | price_total:request.session.cart }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section id="cart-bottom" class="container">
+    <div class="row">
+        <div class="coupon col-lg-6 col-md-6 col-12 mb-4">
+            <div>
+                <h5>COUPON</h5>
+                <p>Enter your coupon code if you have one.</p>
+                <input type="text" placeholder="Coupon Code">
+                <button class="ml-auto">Apply Coupon</button>
+            </div>
+        </div>
+        <div class="total col-lg-6 col-md-6 col-12">
+            <div>
+                <h5>CART TOTAL</h5>
+                <div class="d-flex justify-content-between">
+                    <h6>Subtotal</h6>
+                    <p>₹{{ products | sub_total:request.session.cart }}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <h6>Shipping</h6>
+                    <p>₹40</p>
+                </div>
+                <hr class="second-hr">
+                <div class="d-flex justify-content-between">
+                    <h6>Total</h6>
+                    <p>₹{{ products | total_i:request.session.cart }}</p>
+                </div>
+                <button onclick="myFunction()">Proceed To Checkout</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function myFunction() {
+        location.replace("/payment");
+    }
+
+    function hideRow(element) {
+        // Get the table row containing the clicked trash icon
+        var row = element.closest('tr');
+        // Hide the row
+        row.style.display = 'none';
+    }
+</script>
+
+{% endblock %}
